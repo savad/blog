@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titles %}Blog{% endblock %}
+{% block extra_js %}
+{% endblock %}
+{% block base_content %}
+    <div class="headcontent">
+        <div class="container">
+            <div class="col-sm-10">
+                <h1>kp/dev/blog</h1>
+            </div>
+            <div class="col-sm-2 text-right">
+                <ol class="breadcrumb breadcrumb-arrow">
+                    <li class="active">
+                        <a href="/blog">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            Blog
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-9 col-sm-7 posts">
+            {% for blog in blogs %}
+            <div class="container post format-image">
+                <div class="entry">
+                    <header class="entry-header">
+                        <h2><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h2>
+
+                        <div class="meta">
+                            <small><i class="fa fa-calendar"></i>{{ blog.created }}</small>
+                            <small>
+                                <i class="fa fa-folder"></i>
+                                {% for tag in blog.tags.all %}
+                                <a href="tag">{{ tag.name }}</a>,
+                                {% endfor %}
+                            </small>
+                            <a href="{{ blog.get_absolute_url }}#disqus_thread">
+                                <i class="fa fa-comment"></i> Comments
+                            </a>
+                        </div>
+                    </header>
+                    <div class="entry-content">
+                        <a href="{{ blog.get_absolute_url }}">
+                            <div class="blog-title-image" style="background-image: url('{% if blog.image %}{{ blog.image.url }}{% endif %}');">
+                            </div>
+                        </a>
+
+                        <p>{{ blog.small_description }}</p>
+                        <a href="{{ blog.get_absolute_url }}" class="btn btn-default white">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+
+
+            <div class="container pagination-bar text-center">
+                <ul class="pagination">
+                    <li class="active"><a href="/blog">1</a></li>
+                    <li><a href="/blog/page2">2</a></li>
+                    <li><a href="/blog/page2" class="next"></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <aside class="col-md-3 col-sm-5 sidebar m-center">
+            <!-- .widget -->
+            <div class="widget">
+                <h4>Tags</h4>
+                <ul class="category-list flat">
+                    {% for tag in tags %}
+                    <li>
+                        <a href="/blog/tags/OpenStack">
+                            {{ tag.name }}
+                            <span class="text-right pull-right">48</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        <!-- /.widget -->
+        </aside>
+    </div>
+{% endblock base_content %}

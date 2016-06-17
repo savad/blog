@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>{% block titles %}{% endblock %} | Savad</title>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link href="/static/css/animate.min.css" rel="stylesheet">
+    <link href="/static/css/style.min.css" rel="stylesheet">
+    <link href="/static/css/style-jd.min.css" rel="stylesheet">
+    <link href="/static/css/pygments.min.css" rel="stylesheet">
+    <link href="/static/css/flag-icon.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600,700,900" rel="stylesheet">
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body class="archive">
+    <!-- HEADER -->
+    <header class="header header-dark no-sticky">
+        <nav class="navbar container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="/static/images/dp.png" class="img-circle img-thumbnail" alt="Image">
+                    Savad KP
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li>
+                        <a href="/about">
+                            <span class="glyphicon glyphicon-user"></span>
+                            About
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="/blog">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/projects">
+                            <span class="glyphicon glyphicon-cog"></span>
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/talks">
+                            <span class="glyphicon glyphicon-globe"></span>
+                            Talks
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- /.header -->
+
+    <!-- WRAPPER -->
+    <div class="wrapper">
+            {% block base_content %}
+            {% endblock %}
+    </div>
+    <!-- /.wrapper -->
+
+    <!-- FOOTER -->
+    <footer class="footer footer-dark">
+        <div class="container">
+
+            <hr/>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="copyright">
+                        Created by <a href="site">Savad KP</a>
+
+                    </p>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <nav>
+                        Follow Me
+                        <div class="addthis_horizontal_follow_toolbox"
+                             style="float: right;">
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /.footer -->
+
+    <!-- ScrollTop -->
+    <a href="#" class="scrolltop"><i></i></a>
+
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+    <script src="/static/js/plugins.min.js"></script>
+    <script src="/static/js/custom.min.js"></script>
+    <script src="/static/js/bootstrap-tab-bookmark.js"></script>
+    {% block extra_js %}
+    {% endblock %}
+</body>
+</html>
